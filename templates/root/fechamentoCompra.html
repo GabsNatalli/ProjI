@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block titulo %}Conclusão de Compra{% endblock %}
+
+{% block principal %}
+<body style="min-width: 372px;
+    ">
+    <main class="flex-fill">
+        <div class="container">
+            <h1>Selecione a Forma de Pagamento</h1>
+            <div class="d-flex justify-content-between flex-wrap border rounded-top pt-4 px-3">
+                <div class="mb-4 mx-2 flex-fill">
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="pagar"
+                        autocomplete="off"
+                        id="pg1"
+                    >
+                    <label class="btn btn-outline-success w-100" for="pg1">
+                        <h3>
+                            <b class="text-dark text-center">PIX</b>
+                        </h3>
+                        <hr>
+                        <form action="">
+                            <p> Insira seu CPF:</p>
+                            <div class="form-floating mb-3">
+                                <input
+                                    type="text"
+                                    id="txtCPF"
+                                    class="form-control"
+                                    placeholder=""
+                                    autofocus
+                                >
+                                <label for="txtCPF" class="text-black-50">Cpf:</label>
+                            </div>
+                        </form>
+                    </label>
+                </div>
+                <div class="mb-4 mx-2 flex-fill">
+                    <input
+                        type="radio"
+                        class="btn-check"
+                        name="pagar"
+                        autocomplete="off"
+                        id="pg2"
+                    >
+                    <label class="btn btn-outline-success w-100" for="pg2">
+                        <h3>
+                            <b class="text-dark text-center">DINHEIRO</b>
+                        </h3>
+                        <hr>
+                        <form action="">
+                            <p> Em Necessidade de Troco, Insira ao Campo Abaixo.</p>
+                            <div class="form-floating mb-3">
+                                <input
+                                    type="text"
+                                    id="txtTroco"
+                                    class="form-control"
+                                    placeholder=""
+                                    autofocus
+                                >
+                                <label for="txtTroco" class="text-black-50">Quantia Desejada:</label>
+                            </div>
+                        </form>
+                    </label>
+                </label>
+            </div>
+        </div>
+        <div class="text-end border  rounded-bottom p-4 pb-0">
+            <a href="carrinho.html" class="btn btn-outline-success btn-lg mb-3">
+                Voltar
+            </a>
+            <a href="/html/concluidoCompra.html" class="btn btn-success btn-lg ms-2 mb-3"> Continuar</a>
+        </div>
+    </div>
+</div>
+</main>
+</body>
+{% endblock %}

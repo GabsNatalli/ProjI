@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block titulo %}Inserir Produto{% endblock %}
+{% block principal %}
+<head>
+    <style>
+        .col-2 {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        #preview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+    
+        .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #f2f2f2;
+            pointer-events: none; /* Impede interação com o cursor */
+        }
+    
+        .placeholder-text {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<div class="container d-flex flex-column justify-content-center align-items-center my-4">
+    <h1 class="display-6">
+        <b>Inserir Produto</b>
+    </h1>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <div class="form-floating mb-3">
+            <hr>
+            <input
+                type="text"
+                name="nome"
+                id="nome"
+                class="form-control"
+                placeholder=" "
+            >
+            <label for="nome">Nome</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                type="text"
+                name="preco"
+                id="preco"
+                class="form-control"
+                placeholder=" "
+            >
+            <label for="preco">Preço</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input
+                type="text"
+                name="descricao"
+                id="descricao"
+                class="form-control"
+                placeholder=" "
+            >
+            <label for="descricao">descricao</label>
+        </div>
+        <div class="col-12 mb-3">
+            <label for="arquivoImagem" class="form-label">
+                Selecione o Arquivo de
+            Imagem
+            </label>
+            <input
+                class="form-control"
+                type="file"
+                id="arquivoImagem"
+                name="arquivoImagem"
+                onchange="previewImage(event)"
+                accept="image/jpeg"
+                required
+            >
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success btn-lg">Salvar</button>
+            <a href="/" class="btn btn-light btn-lg border-success">Cancelar</a>
+        </div>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<div class="col-2">
+    <div class="placeholder">
+        <p class="placeholder-text">Nenhuma imagem selecionada</p>
+    </div>
+    <img id="preview" src="" class="border border-2 rounded rounded-3 p-2">
+</div>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var preview = document.getElementById('preview');
+            preview.src = reader.result;
+            preview.style.display = 'block';
+            document.querySelector('.placeholder').style.display = 'none';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block titulo %}Registrar-se{% endblock %}
+
+{% block principal %}
+<main class="container d-flex flex-column justify-content-center align-items-center my-4">
+    <img
+        src="/static/img/lanche.png"
+        class="mb-4 imgLogo"
+        height="250"
+        width="220"
+    >
+    <hr>
+    <h1 class="display-6">
+        <b>Criar Conta</b>
+    </h1>
+    <hr>
+    <form method="post" enctype="multipart/form-data" class="w-100">
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+            <div class="form-floating mb-3">
+                <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    class="form-control"
+                    placeholder=" "
+                    required=""
+                    autofocus=""
+                >
+                <label for="nome">Nome</label>
+            </div>
+        </div>
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+            <div class="form-floating mb-3">
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder=" "
+                    required=""
+                >
+                <label for="email">E-mail</label>
+            </div>
+        </div>
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+            <div class="form-floating mb-3">
+                <input
+                    type="password"
+                    name="senha"
+                    id="senha"
+                    class="form-control"
+                    placeholder=" "
+                    required=""
+                >
+                <label for="senha">Senha</label>
+            </div>
+        </div>
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+            <div class="form-floating mb-3">
+                <input
+                    type="password"
+                    name="confsenha"
+                    id="confsenha"
+                    class="form-control"
+                    placeholder=" "
+                    required=""
+                >
+                <label for="confsenha">Confirmação de Senha</label>
+            </div>
+        </div>
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success btn-lg">Salvar</button>
+                <a href="/" class="btn btn-light btn-lg border-success">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
+</main>
+{% endblock %}

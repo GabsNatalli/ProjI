@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block titulo %}Erro{% endblock %}
+{% block principal %}
+<div class="col-12">
+    <h1 class="display-6"><b>Opa, Algo deu Errado!</b></h1>
+    <hr>
+    <p class="lead">
+        Lamentamos informar que ocorreu um erro. Estamos trabalhando para resolvê-lo!
+    </p>
+    <h5>Mais informações: </h5>
+    <p>
+        {{ detail }}
+    </p>
+</div>
+{% endblock %}

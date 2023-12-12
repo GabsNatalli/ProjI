@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}Detalhes do Produto{% endblock %}
+
+{% block principal %}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Rowdies" rel="stylesheet">
+    <style>
+        .customColorFonts {
+            font-family: "Rowdies";
+            color: rgb(233, 230, 230);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <main class="container my-4">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <img id="preview" src="/static/img/produtos/{{ '{:04d}'.format(produto.id) }}.jpg" class="border border-2 rounded rounded-3 p-2 w-100">
+            </div>
+            <div class="col-md-9 mb-4">
+                <h1>{{ produto.nome }}</h1>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="text-danger">Somente: R$ {{ produto.preco }}</h3>
+                    <button class="btn btn-success btn-lg customColorFonts">COMPRAR</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="lead">
+                    <b>Descrição:</b>
+                    <hr>
+                </p>
+                <p>{{ produto.descricao }}</p>
+                <hr>
+            </div>
+        </div>
+    </main>
+</body>
+{% endblock %}

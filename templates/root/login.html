@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block titulo %}Login{% endblock %}
+
+{% block principal %}
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Rowdies">
+    <style>
+        .formatM {
+            margin-top: 200px;
+        }
+        .fontUser {
+            font-family: "Rowdies";
+        }
+    </style>
+</head>
+<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xxl-4
+offset-xxl-4">
+    <h1 class="display-6 text-center formatM fontUser">
+        <b>Login</b>
+    </h1>
+    <hr class="my-3">
+    <p class="lead text-center">
+        <b>Área 51</b>
+    </p>
+    <form method="post" class="mb-5">
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="form-floating">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        placeholder=" "
+                        required
+                        autofocus
+                    >
+                    <label for="email fontUser">E-mail</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="senha"
+                        name="senha"
+                        placeholder=" "
+                        required
+                    >
+                    <label for="senha fontUser">Senha</label>
+                </div>
+            </div>
+            <button class="btn btn-success fontUser" type="submit">Entrar</button>
+            <a href="/" class="btn btn-link me-2 fontUser border-success">Voltar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

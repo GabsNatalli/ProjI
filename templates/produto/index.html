@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block titulo %}Produtos{% endblock %}
+{% block principal %}
+<head>
+    <style>
+        /* Estilo para a linha separadora das colunas da tabela */
+        .colorBar th {
+            background-color: #2b9758; /* Cor verde (#2b9758) - substitua pela cor desejada */
+            color: white; /* Para garantir que o texto seja visível */
+        }
+    </style>
+</head>
+<div class="container d-flex flex-column justify-content-center align-items-center my-4">
+    <h1 class="display-6 text-center">
+        <b>Cadastro de produtos</b>
+    </h1>
+</div>
+<div class="container my-4">
+    {% if produtos|length == 0 %}
+    <h4 class="text-center">
+        Não há produtos.
+    </h4>
+    {% else %}
+    <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <hr>
+        <table class="table table-striped table-sm primeira-centralizada segunda-centralizada ultima-centralizada colorBar">
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in produtos: %}
+                <tr>
+                    <td>
+                        <img src="/static/img/produtos/{{ '{:04d}'.format(p.id) }}.jpg" class="border border-1 rounded rounded-1" height="48">
+                    </td>
+                    <td>{{ p.nome }}</td>
+                    <td>{{ p.preco }}</td>
+                    <td class="buttons-container">
+                        <a href="/produto/alterar/{{p.id}}" class="btn btn-secondary btn-sm btn-action">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="/produto/excluir/{{p.id}}" class="btn btn-danger btn-sm btn-action">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    <div class="d-flex justify-content-between align-items-center">
+        <a href="/produto/inserir" class="btn btn-success">Novo</a>
+    </div>
+</div>
+{% endblock %}
